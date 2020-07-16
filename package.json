@@ -5,10 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "npm run build:css && vue-cli-service build",
-    "tailwind": "npx tailwindcss build src/assets/css/tailwind.css -o src/assets/css/index.css",
-    "autoprefixer": "postcss src/assets/css/index.css -u autoprefixer --no-map -o src/assets/css/autoprefixer.css",
-    "minify": "postcss src/assets/css/autoprefixer.css -u cssnano --no-map -o src/assets/css/index.min.css",
-    "build:css": "npm run tailwind && npm run autoprefixer && npm run minify",
+    "build:css": "npx tailwindcss build src/assets/css/tailwind.css -o src/assets/css/index.css",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
