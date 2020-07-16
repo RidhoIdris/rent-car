@@ -16,8 +16,8 @@
         </div>
     </div>
     <div class="flex flex-col h-screen object-cover relative">
-        <div class="h-10vh flex">
-            <div class="container mx-auto flex justify-between items-center h-full px-4">
+        <div class="h-10vh flex px-4">
+            <div class="container mx-auto flex justify-between items-center h-full">
                 <div class="flex space-x-4 md:w-30vw">
                     <div class="flex flex-col items-end space-y-1 cursor-pointer">
                         <div class="bg-white h-1 w-8"></div>
@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="flex-1 px-4">
-            <div class="-lg:container lg:w-70p mx-auto h-full flex flex-col justify-center items-center">
+            <div class="container mx-auto h-full flex flex-col justify-center items-center">
                 <h1 class="text-4xl w-full text-white mb-2">Find your car</h1>
                 <div class="w-full h-150p rounded p-5 -md:bg-white grid-cols-2 md:grid-cols-5 grid gap-5 relative">
                     <img src="../assets/img/s.png" class="absolute -md:hidden top-0 left-0 w-full bg-cover h-full">
