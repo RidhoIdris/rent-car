@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build:css": "npx tailwindcss build src/assets/css/tailwind.css -o src/assets/css/index.css",
+    "build": "npm run build:css && vue-cli-service build",
+    "build:css": "postcss tailwindcss build src/assets/css/tailwind.css -o src/assets/css/index.css",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
