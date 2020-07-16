@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="font-roboto">
     <div class="absolute h-screen w-full">
         <div class="absolute h-screen w-full">
             <splide :options="splide">
