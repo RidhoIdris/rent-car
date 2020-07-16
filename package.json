@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@splidejs/vue-splide": "^0.3.3",
+    "autoprefixer": "^9.8.5",
     "core-js": "^3.6.5",
     "tailwindcss": "^1.5.1",
     "vue": "^2.6.11",
