@@ -61,25 +61,27 @@
         <div class="flex-1 px-4">
             <div class="-lg:container lg:w-70p mx-auto h-full flex flex-col justify-center items-center">
                 <h1 class="text-4xl w-full text-white mb-2">Find your car</h1>
-                <div class="w-full h-150p  bg-white rounded p-5 grid-cols-2 md:grid-cols-5 grid gap-5">
-                    <div class=" flex flex-col justify-center">
+                <div class="w-full h-150p rounded p-5 -md:bg-white grid-cols-2 md:grid-cols-5 grid gap-5 relative">
+                    <img src="../assets/img/s.png" class="absolute -md:hidden top-0 left-0 bg-cover h-full">
+                    <div class=" flex flex-col justify-center relative z-10">
                         <p class="text-sm text-gray-500 pb-1 -md:text-xs">Pick-up Location</p>
                         <v-select class="style-chooser"  placeholder="Pick-up Location" :options="options"></v-select>
                     </div>
-                    <div class=" flex flex-col justify-center">
+                    <div class=" flex flex-col justify-center relative z-10">
                         <p class="text-sm text-gray-500 pb-1 -md:text-xs">Return Location</p>
                         <v-select placeholder="Return Location" :options="options"></v-select>
                     </div>
-                    <div class=" flex flex-col justify-center">
+                    <div class=" flex flex-col justify-center relative z-10">
                         <p class="text-sm text-gray-500 pb-1 -md:text-xs">Pick-up Date-Time</p>
                         <flat-pickr placeholder="Pick Date" class="border border-gray-500 rounded px-2 py-1" :config="config1" v-model="date1"></flat-pickr>
                     </div>
-                    <div class=" flex flex-col justify-center">
+                    <div class=" flex flex-col justify-center relative z-10">
                         <p class="text-sm text-gray-500 pb-1 -md:text-xs">Return Date-Time</p>
                         <flat-pickr placeholder="Pick Date" class="border border-gray-500 rounded px-2 py-1" :config="config2" v-model="date2"></flat-pickr>
                     </div>
-                    <div class="flex flex-col justify-center -md:col-span-2">
-                        <button class="bg-blue-500 px-4 py-2 h-full rounded-lg hover:bg-blue-700 focus:outline-none text-white font-semibold text-xl">Search</button>
+                    <div class="flex flex-col justify-center relative z-10 -md:col-span-2">
+                        <img src="../assets/img/button.png" class="absolute -md:hidden top-0 left-0 h-full w-full bg-cover">
+                        <button class="px-4 relative md:w-90p z-20 py-2 -md:bg-blue-500 -md:hover:bg-blue-600 h-full focus:outline-none text-white font-semibold text-xl">Search</button>
                     </div>
                 </div>
             </div>
