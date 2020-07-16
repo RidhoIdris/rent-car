@@ -15,7 +15,7 @@
             </splide>
         </div>
     </div>
-    <div class="flex flex-col h-screen object-cover relative z-10">
+    <div class="flex flex-col h-screen object-cover relative">
         <div class="h-10vh flex">
             <div class="container mx-auto flex justify-between items-center h-full px-4">
                 <div class="flex space-x-4 md:w-30vw">
@@ -38,11 +38,22 @@
                             <span class="text-white cursor-pointer hover:text-blue-400">REGISTER</span>
                         </div>                            
                     </div>
-                    <div class="flex space-x-2 border-b cursor-pointer pb-2 border-white">
-                        <img src="../assets/img/uk.svg" class="w-6">
-                        <svg width="24" height="24" class="-sm:hidden" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path class="text-white fill-current" d="M16.59 8.29501L12 12.875L7.41 8.29501L6 9.70501L12 15.705L18 9.70501L16.59 8.29501Z"/>
-                        </svg>                
+                    <div class="relative" v-on-clickaway="away">
+                        <div @click="laguage = !laguage" class="flex space-x-2 border-b cursor-pointer pb-2 border-white">
+                            <img :src="laguageSelected" class="w-6">
+                            <svg width="24" height="24" class="-sm:hidden" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="text-white fill-current" d="M16.59 8.29501L12 12.875L7.41 8.29501L6 9.70501L12 15.705L18 9.70501L16.59 8.29501Z"/>
+                            </svg>                
+                        </div>
+                         <div v-show="laguage" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg">
+                            <div class="rounded-md bg-white shadow-xs">
+                                <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                    <a href="#" @click="changelaguage('uk')" class="flex space-x-2 px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-blue-200 hover:text-gray-900 focus:outline-none focus:bg-blue-200 focus:text-gray-900" role="menuitem"> <img src="../assets/img/uk.svg" class="w-6"><span>UK</span></a>
+                                    <a href="#" @click="changelaguage('morocco')" class="flex space-x-2 px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-blue-200 hover:text-gray-900 focus:outline-none focus:bg-blue-200 focus:text-gray-900" role="menuitem"> <img src="../assets/img/morocco.png" class="w-6"><span>Morocco</span></a>
+                                    <a href="#" @click="changelaguage('norway')" class="flex space-x-2 px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-blue-200 hover:text-gray-900 focus:outline-none focus:bg-blue-200 focus:text-gray-900" role="menuitem"> <img src="../assets/img/norway.png" class="w-6"><span>Norway</span></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -75,12 +86,12 @@
         </div>
         <div class="h-10vh px-4">
             <div class="container mx-auto flex justify-between items-center h-full">
-                <ul class="flex flex-col md:flex-row md:space-x-5">
-                    <li class="text-white font-light -md:text-xs hover:text-blue-400 cursor-pointer">Homepage</li>
-                    <li class="text-white font-light -md:text-xs hover:text-blue-400 cursor-pointer">Explore Vehicles</li>
-                    <li class="text-white font-light -md:text-xs hover:text-blue-400 cursor-pointer">Contact</li>
+                <ul class="flex flex-col md:flex-row md:space-x-5 relative z-50">
+                    <li class="text-white font-light -md:text-xs  hover:text-blue-400 cursor-pointer">Homepage</li>
+                    <li class="text-white font-light -md:text-xs  hover:text-blue-400 cursor-pointer">Explore Vehicles</li>
+                    <li class="text-white font-light -md:text-xs  hover:text-blue-400 cursor-pointer">Contact</li>
                 </ul>
-                <div class="flex flex-col font-light text-white items-end relative">
+                <div class="flex flex-col font-light text-white items-end relative relative z-50">
                     <img src="../assets/img/sara.png" class="w-40p absolute right-0 top-0 -mt-12">
                     <p class="text-xs">Hello, I'm sara</p>
                     <p class="text-xs">How can I help you?</p>
@@ -95,13 +106,20 @@
 import flatPickr from 'vue-flatpickr-component';
 import vSelect from 'vue-select'
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import { mixin as clickaway } from 'vue-clickaway';
 import 'flatpickr/dist/flatpickr.css';
 import 'vue-select/dist/vue-select.css';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
+import uk from '../assets/img/uk.svg'
+import norway from '../assets/img/norway.png'
+import morocco from '../assets/img/morocco.png'
 export default {
+  mixins: [ clickaway ],
   name: 'Hero',
   data () {
       return {
+        laguageSelected : uk,
+        laguage : false,
         date1: null,       
         date2: null,  
         config1 : {
@@ -109,7 +127,7 @@ export default {
           dateFormat: "d.m.Y H:i",
           minDate: "today",
           minTime:  Date.now(),
-        }   ,  
+        },  
         config2 : {
           enableTime: true,
           dateFormat: "d.m.Y H:i",
@@ -126,6 +144,21 @@ export default {
           'baz'
         ]  
       }
+  },
+  methods: {
+    away: function() {
+      this.laguage = false
+    },
+    changelaguage : function(e){
+        if(e == 'uk'){
+            this.laguageSelected = uk
+        }else if (e == 'morocco'){
+            this.laguageSelected = morocco
+        }else if (e == 'norway'){
+            this.laguageSelected = norway
+        }
+        this.laguage = false
+    }
   },
   components: {
       flatPickr,
