@@ -62,7 +62,7 @@
             <div class="-lg:container lg:w-70p mx-auto h-full flex flex-col justify-center items-center">
                 <h1 class="text-4xl w-full text-white mb-2">Find your car</h1>
                 <div class="w-full h-150p rounded p-5 -md:bg-white grid-cols-2 md:grid-cols-5 grid gap-5 relative">
-                    <img src="../assets/img/s.png" class="absolute -md:hidden top-0 left-0 bg-cover h-full">
+                    <img src="../assets/img/s.png" class="absolute -md:hidden top-0 left-0 w-full bg-cover h-full">
                     <div class=" flex flex-col justify-center relative z-10">
                         <p class="text-sm text-gray-500 pb-1 -md:text-xs">Pick-up Location</p>
                         <v-select class="style-chooser"  placeholder="Pick-up Location" :options="options"></v-select>
@@ -93,7 +93,7 @@
                     <li class="text-white font-light -md:text-xs  hover:text-blue-400 cursor-pointer">Explore Vehicles</li>
                     <li class="text-white font-light -md:text-xs  hover:text-blue-400 cursor-pointer">Contact</li>
                 </ul>
-                <div class="flex flex-col font-light text-white items-end relative relative z-50">
+                <div class="flex flex-col font-light text-white items-end relative z-50">
                     <img src="../assets/img/sara.png" class="w-40p absolute right-0 top-0 -mt-12">
                     <p class="text-xs">Hello, I'm sara</p>
                     <p class="text-xs">How can I help you?</p>
